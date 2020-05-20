@@ -282,6 +282,8 @@ class EmacsHead < Formula
     if build.with? "cocoa"
       args << "--with-ns" << "--disable-ns-self-contained"
 
+      system "git checkout acd2cb28ef63188bff31fc167ab007a051f99c17"
+
       system "./configure", *args
 
       # Disable aligned_alloc on Mojave. See issue: https://github.com/daviderestivo/homebrew-emacs-head/issues/15
