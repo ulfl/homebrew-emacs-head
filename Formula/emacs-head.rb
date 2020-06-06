@@ -16,7 +16,7 @@ class EmacsHead < Formula
   end
 
   head do
-    url "https://github.com/emacs-mirror/emacs.git"
+    url "https://github.com/emacs-mirror/emacs.git", :using => :git, :revision => "acd2cb28ef63188bff31fc167ab007a051f99c17"
 
     depends_on "autoconf" => :build
     depends_on "gnu-sed"  => :build
@@ -281,8 +281,6 @@ class EmacsHead < Formula
 
     if build.with? "cocoa"
       args << "--with-ns" << "--disable-ns-self-contained"
-
-      system "git checkout acd2cb28ef63188bff31fc167ab007a051f99c17"
 
       system "./configure", *args
 
